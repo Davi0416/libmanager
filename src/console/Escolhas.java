@@ -3,6 +3,7 @@ package console;
 import dados.Livro;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,45 +14,37 @@ public class Escolhas {
     List<Livro> listaLivros = new ArrayList<>();
 
     public void menuInicial() {
+        AdicionarLivro escolha1 = new AdicionarLivro();
+        MenuEdicao escolha3 = new MenuEdicao();
+        DeletarLivros escolha4 = new DeletarLivros();
 
-        while (true) {
-            System.out.println("\n╔══════════════════════════╗");
-            System.out.println("║       📖 LIBMANAGER       ║");
-            System.out.println("╠══════════════════════════╣");
-            System.out.println("║  1. ➕ Adicionar Livro    ║");
-            System.out.println("║  2. 📋 Listar Livros      ║");
-            System.out.println("║  3. ✏️  Atualizar Livro   ║");
-            System.out.println("║  4. 🗑️  Deletar Livro     ║");
-            System.out.println("║  5. 🔖 Aluguel de Livros  ║");
-            System.out.println("║  6. 🚪 Sair               ║");
-            System.out.println("╚══════════════════════════╝");
-            System.out.print("  👉 Escolha: ");
-            opcao = reader.nextInt();
-            if (opcao == 6) {
-                break;
-            } else if (opcao == 1) {
-                escolha1();
-            } else if (opcao == 2) {
-                escolha2();
+            while (true) {
+                System.out.println("\n╔══════════════════════════╗");
+                System.out.println("║       📖 LIBMANAGER       ║");
+                System.out.println("╠══════════════════════════╣");
+                System.out.println("║  1. ➕ Adicionar Livro    ║");
+                System.out.println("║  2. 📋 Listar Livros      ║");
+                System.out.println("║  3. ✏️  Atualizar Livro   ║");
+                System.out.println("║  4. 🗑️  Deletar Livro     ║");
+                System.out.println("║  5. 🔖 Aluguel de Livros  ║");
+                System.out.println("║  6. 🚪 Sair               ║");
+                System.out.println("╚══════════════════════════╝");
+                System.out.print("  👉 Escolha: ");
+                opcao = reader.nextInt();
+
+
+                if (opcao == 6) {
+                    break;
+                } else if (opcao == 1) {
+                    escolha1.addLivro(listaLivros);
+                } else if (opcao == 2) {
+                    escolha2();
+                } else if (opcao == 3) {
+                    escolha3.menuEdicao(listaLivros);
+                } else if (opcao == 4) {
+                    escolha4.delLivros(listaLivros);
+                }
             }
-        }
-    }
-
-    public void escolha1() {
-
-        System.out.println("Digite o nome do livro: ");
-        String nomeLivro = reader.nextLine();
-        nomeLivro = reader.nextLine();
-
-        System.out.println("Digite o nome do autor: ");
-        String nomeAutor = reader.nextLine();
-
-        System.out.println("Digite o ISBN do livro: ");
-        String isbn = reader.nextLine();
-        boolean disponivel = true;
-
-        Livro livro = new Livro(nomeLivro, nomeAutor, isbn, disponivel);
-        listaLivros.add(livro);
     }
 
     @Override
@@ -61,7 +54,7 @@ public class Escolhas {
                 '}';
     }
 
-    public void escolha2(){
+    public void escolha2() {
         for (Livro livro : listaLivros) {
             System.out.println(livro);
         }

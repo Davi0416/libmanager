@@ -6,7 +6,7 @@ import dados.Usuario;
 import java.util.Scanner;
 
 public class Main {
-    static void main() {
+    public static void main(String[] args) {
         Escolhas escolhas = new Escolhas();
 
         escolhas.menuInicial();
