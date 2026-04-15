@@ -23,7 +23,6 @@ public class MenuEdicao {
 
         while (true) {
 
-
             System.out.println("\n╔══════════════════════════╗");
             System.out.println("║      ✏️  EDITAR LIVRO      ║");
             System.out.println("╠══════════════════════════╣");
