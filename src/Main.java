@@ -16,6 +16,5 @@ public class Main {
         var user = new Usuario();
 
         int opcao = 0;
-
     }
 }

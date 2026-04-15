@@ -1,7 +1,5 @@
 package console;
-
 import dados.Livro;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,9 +15,20 @@ public class AdicionarLivro {
 
         System.out.println("Digite o ISBN do livro: ");
         String isbn = reader.nextLine();
-        boolean disponivel = true;
 
-        Livro livro = new Livro(nomeLivro, nomeAutor, isbn, disponivel);
+        int estoque;
+        while (true) {
+            System.out.println("Digite a quantidade para ter em estoque: ");
+            estoque = reader.nextInt();
+            if (estoque > 0){
+                break;
+            }
+            if (estoque <= 0){
+                System.out.println("O número de estoque precisa ser maior do que 0!");
+            }
+        }
+
+        Livro livro = new Livro(nomeLivro, nomeAutor, isbn, estoque);
         list.add(livro);
     }
 }

@@ -10,14 +10,14 @@ public class Livro {
     private String titulo;
     private String autor;
     private String isbn;
-    private boolean disponivel;
+    private int estoque;
 
 
-    public Livro(String titulo, String autor, String isbn, boolean disponivel) {
+    public Livro(String titulo, String autor, String isbn, int estoque) {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
-        this.disponivel = disponivel;
+        this.estoque = estoque;
     }
 
     public String getTitulo() {
@@ -44,23 +44,25 @@ public class Livro {
         this.isbn = isbn;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
+
+    public int getEstoque() {
+        return estoque;
     }
 
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
     }
+
 
     @Override
     public String toString() {
         return "╔══════════════════════════╗\n" +
                 "       📚 DETALHES DO LIVRO      \n" +
                 "╠══════════════════════════╣\n" +
-                "  Título    : " + titulo + "\n" +
-                "  Autor     : " + autor + "\n" +
-                "  ISBN      : " + isbn + "\n" +
-                "  Disponível: " + (disponivel ? "✅ Sim" : "❌ Não") + "\n" +
+                "  Título     : " + titulo + "\n" +
+                "  Autor      : " + autor + "\n" +
+                "  ISBN       : " + isbn + "\n" +
+                "  Disponível : " + estoque + (estoque > 0 ? " unidades" : " (Esgotado)") + "\n" +
                 "╚══════════════════════════╝";
     }
 }

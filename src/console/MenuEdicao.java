@@ -55,8 +55,8 @@ public class MenuEdicao {
                     break;
 
                 case 4:
-                    livro.setDisponivel(!livro.isDisponivel());
-                    System.out.println("Disponibilidade alterada para: " + livro.isDisponivel());
+                    System.out.println("Digite a nova quantidade em estoque: ");
+                    livro.setEstoque(reader.nextInt());
                     break;
 
                 case 5:
