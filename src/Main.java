@@ -13,7 +13,6 @@ public class Main {
 
         Scanner reader = new Scanner(System.in);
         var livro = new Livro[10];
-        var user = new Usuario();
 
         int opcao = 0;
     }
