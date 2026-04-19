@@ -32,13 +32,14 @@ public class Escolhas {
             System.out.println("╠══════════════════════════╣");
             System.out.println("║  6. 👤 Adicionar Usuário  ║");
             System.out.println("║  7. ❌ Remover Usuário    ║");
+            System.out.println("║  8. 📋 Listar Usuários    ║");
             System.out.println("╠══════════════════════════╣");
-            System.out.println("║  8. 🚪 Sair               ║");
+            System.out.println("║  9. 🚪 Sair               ║");
             System.out.println("╚══════════════════════════╝");
             System.out.print("  👉 Escolha: ");
             opcao = reader.nextInt();
 
-            if (opcao == 8) {
+            if (opcao == 9) {
                 break;
             } else if (opcao == 1) {
                 escolha1.addLivro(listaLivros);
@@ -52,7 +53,19 @@ public class Escolhas {
                 adicionarUsuario();
             } else if (opcao == 7) {
                 removerUsuario();
+            } else if (opcao == 8) {
+                listarUsuarios();
             }
+        }
+    }
+
+    public void listarUsuarios() {
+        if (listaUsuarios.isEmpty()) {
+            System.out.println("Nenhum usuário cadastrado!");
+            return;
+        }
+        for (Usuario usuario : listaUsuarios) {
+            System.out.println(usuario);
         }
     }
 
